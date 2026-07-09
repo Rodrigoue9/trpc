@@ -83,12 +83,12 @@
     "@tanstack/intent": "^0.0.27",
     "@trpc/server": "11.18.0",
     "@types/node": "^22.13.5",
+    "@typescript/native": "npm:typescript@^7.0.2",
     "bson": "^7.2.0",
     "eslint": "^9.26.0",
     "ion-js": "^5.2.1",
     "superjson": "^1.12.4",
     "tsdown": "0.12.7",
-    "@typescript/native": "npm:typescript@^7.0.2",
     "vscode-languageserver-textdocument": "^1.0.12",
     "vscode-languageserver-types": "^3.17.5",
     "zod": "^4.2.1"
