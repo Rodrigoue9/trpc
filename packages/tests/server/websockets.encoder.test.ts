@@ -17,7 +17,7 @@ type Message = {
 const mockBinaryEncoder: Encoder = {
   encode: (data) => {
     const json = JSON.stringify(data);
-    return new TextEncoder().encode(`BINARY:${json}`);
+    return Buffer.from(`BINARY:${json}`);
   },
   decode: (data) => {
     const str =

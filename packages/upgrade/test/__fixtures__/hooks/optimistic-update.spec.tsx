@@ -8,13 +8,13 @@ import { ctx, resetFixtureState } from './optimistic-update.trpc';
 export const run: SpecRun = async (Component) => {
   expect(Component).toBeDefined();
 
+  const utils = ctx.renderApp(<Component />);
+
   using _finally = makeResource({}, () => {
     utils.unmount();
     ctx.queryClient.clear();
     resetFixtureState();
   });
-
-  const utils = ctx.renderApp(<Component />);
 
   await vi.waitFor(() => {
     expect(ctx.queryClient.isFetching()).toBe(0);
