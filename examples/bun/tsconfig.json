@@ -10,6 +10,7 @@
     "noEmit": true,
     "allowImportingTsExtensions": true,
     "moduleDetection": "force",
+    "types": ["bun"],
 
     "jsx": "react-jsx", // support JSX
     "allowJs": true, // allow importing `.js` from `.ts`

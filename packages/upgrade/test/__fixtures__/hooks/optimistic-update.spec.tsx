@@ -9,8 +9,9 @@ export const run: SpecRun = async (Component) => {
   expect(Component).toBeDefined();
 
   using _finally = makeResource({}, () => {
-    resetFixtureState();
     utils.unmount();
+    ctx.queryClient.clear();
+    resetFixtureState();
   });
 
   const utils = ctx.renderApp(<Component />);
@@ -23,6 +24,7 @@ export const run: SpecRun = async (Component) => {
   await userEvent.click(utils.getByTestId('mutate'));
   await vi.waitFor(() => {
     expect(ctx.queryClient.isFetching()).toBe(0);
+    expect(ctx.queryClient.isMutating()).toBe(0);
     expect(utils.container).toHaveTextContent('Posts: 2initialFoo');
   });
 };

@@ -2,9 +2,10 @@
   "compilerOptions": {
     "lib": ["esnext", "dom"],
     "target": "esnext",
+    "module": "Preserve",
     "esModuleInterop": true,
     "strict": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "noEmit": true
   },
   "include": ["src"],

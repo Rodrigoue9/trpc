@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "rootDir": ".",
     "module": "Preserve",
     "lib": ["es2022", "dom", "dom.iterable"],
     "target": "es2022",

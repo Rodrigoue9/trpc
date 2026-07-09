@@ -11,7 +11,8 @@
     "@tsconfig/strictest": "^2.0.1",
     "@types/node": "^22.13.5",
     "tsdown": "0.12.7",
-    "typescript": "^5.9.2"
+    "@typescript/native": "npm:typescript@^7.0.2",
+    "typescript": "npm:@typescript/typescript6@^6.0.2"
   },
   "dependencies": {
     "@trpc/client": "npm:@trpc/client",

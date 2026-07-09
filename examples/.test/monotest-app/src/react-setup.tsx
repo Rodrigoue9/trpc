@@ -3,10 +3,11 @@
 import type { AppRouter } from '@monotest/api';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { httpBatchLink } from '@trpc/client';
-import { createTRPCReact } from '@trpc/react-query';
+import { createTRPCReact, type CreateTRPCReact } from '@trpc/react-query';
 import { useState } from 'react';
 
-export const trpcReact = createTRPCReact<AppRouter>();
+export const trpcReact: CreateTRPCReact<AppRouter, unknown> =
+  createTRPCReact<AppRouter>();
 
 export function TRPCReactProvider(props: { children: React.ReactNode }) {
   const [queryClient] = useState(() => new QueryClient());
