@@ -398,9 +398,14 @@ export default {
                 return true;
               })
               .map((docItem) => {
-                let link = `${versionSpec.routePath}/${docItem.id}`;
-                link = link.replace(new RegExp('([^:])//', 'g'), '$1/');
-                return `- [${docItem.title}](${link}): ${docItem.description ?? 'No description available'}`;
+                const docPath =
+                  docItem.path ??
+                  `${versionSpec.routePath}/${docItem.id}`.replace(
+                    new RegExp('([^:])//', 'g'),
+                    '$1/',
+                  );
+                const absoluteLink = new URL(docPath, siteConfig.url).href;
+                return `- [${docItem.title}](${absoluteLink}): ${docItem.description ?? 'No description available'}`;
               });
 
             if (tocRecords.length > 0) {
@@ -419,7 +424,7 @@ export default {
                 titleVersionSuffix = '';
               }
               const tocTitle =
-                `${siteConfig.title} - Docs ${titleVersionSuffix}`.trim();
+                `# ${siteConfig.title} - Docs ${titleVersionSuffix}`.trim();
 
               let otherVersionsLinksContent = '';
               for (const otherVersion of versionsToProcessConfig) {
