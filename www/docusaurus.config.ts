@@ -380,7 +380,8 @@ export default {
                 id: string;
                 title: string;
                 description?: string;
-                [key: string]: any;
+                path?: string;
+                [key: string]: unknown;
               }
             >;
 
