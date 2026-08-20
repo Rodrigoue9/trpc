@@ -400,7 +400,9 @@ export default {
               })
               .map((docItem) => {
                 const docPath =
-                  docItem.path ??
+                  (typeof docItem.path === 'string' && docItem.path.length > 0
+                    ? docItem.path
+                    : undefined) ??
                   `${versionSpec.routePath}/${docItem.id}`.replace(
                     new RegExp('([^:])//', 'g'),
                     '$1/',
