@@ -17,7 +17,7 @@ describe('HTTP link cancellation', () => {
   test('aborts an in-flight httpLink request when unsubscribed', async () => {
     const fetchMock = vi.fn(
       (_url: RequestInfo | URL, _init?: RequestInit) =>
-        new Promise<never>(() => {}),
+        new Promise<never>(() => undefined),
     );
     const link = httpLink<AnyRouter>({
       url: 'https://example.com',
@@ -45,7 +45,7 @@ describe('HTTP link cancellation', () => {
   test('aborts an in-flight httpBatchLink request when unsubscribed', async () => {
     const fetchMock = vi.fn(
       (_url: RequestInfo | URL, _init?: RequestInit) =>
-        new Promise<never>(() => {}),
+        new Promise<never>(() => undefined),
     );
     const link = httpBatchLink<AnyRouter>({
       url: 'https://example.com',
