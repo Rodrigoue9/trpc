@@ -7,7 +7,13 @@ export interface OpenApiRouteDefinition {
 export interface OpenApiSpecResult {
   openapi: '3.1.0';
   info: { title: string; version: string };
-  paths: Record<string, Record<string, { summary: string; responses: Record<string, { description: string }> }>>;
+  paths: Record<
+    string,
+    Record<
+      string,
+      { summary: string; responses: Record<string, { description: string }> }
+    >
+  >;
 }
 
 /**
@@ -16,7 +22,7 @@ export interface OpenApiSpecResult {
 export function buildOpenApiSpec(
   title: string,
   version: string,
-  routes: OpenApiRouteDefinition[]
+  routes: OpenApiRouteDefinition[],
 ): OpenApiSpecResult {
   const paths: OpenApiSpecResult['paths'] = {};
   for (const r of routes) {
@@ -25,14 +31,14 @@ export function buildOpenApiSpec(
         summary: r.summary,
         responses: {
           '200': { description: 'Successful response' },
-          '400': { description: 'Bad request / validation error' }
-        }
-      }
+          '400': { description: 'Bad request / validation error' },
+        },
+      },
     };
   }
   return {
     openapi: '3.1.0',
     info: { title, version },
-    paths
+    paths,
   };
 }
