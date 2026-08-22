@@ -1,8 +1,24 @@
+export interface OpenApiRouteDefinition {
+  path: string;
+  method: string;
+  summary: string;
+}
+
+export interface OpenApiSpecResult {
+  openapi: '3.1.0';
+  info: { title: string; version: string };
+  paths: Record<string, Record<string, { summary: string; responses: Record<string, { description: string }> }>>;
+}
+
 /**
- * trpc / trpc OpenAPI 3.1 schema exporter utility
+ * tRPC OpenAPI 3.1 schema exporter utility with strict TypeScript definitions.
  */
-export function buildOpenApiSpec(title: string, version: string, routes: Array<{ path: string; method: string; summary: string }>) {
-  const paths: Record<string, any> = {};
+export function buildOpenApiSpec(
+  title: string,
+  version: string,
+  routes: OpenApiRouteDefinition[]
+): OpenApiSpecResult {
+  const paths: OpenApiSpecResult['paths'] = {};
   for (const r of routes) {
     paths[r.path] = {
       [r.method.toLowerCase()]: {
