@@ -1,4 +1,6 @@
 /**
  * tRPC v11 - memory-leak-tracker-middleware
  */
-export function memoryLeakTracker() { return () => {}; }
+export function memoryLeakTracker() {
+  return () => {};
+}
