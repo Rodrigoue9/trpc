@@ -1,1 +1,9 @@
-export class InFlightDeduplicator { private pending = new Map<string, Promise<any>>(); execute<T>(key: string, factory: () => Promise<T>): Promise<T> { if (this.pending.has(key)) return this.pending.get(key)!; const p = factory().finally(() => this.pending.delete(key)); this.pending.set(key, p); return p; } }
+export class InFlightDeduplicator {
+  private pending = new Map<string, Promise<any>>();
+  execute<T>(key: string, factory: () => Promise<T>): Promise<T> {
+    if (this.pending.has(key)) return this.pending.get(key)!;
+    const p = factory().finally(() => this.pending.delete(key));
+    this.pending.set(key, p);
+    return p;
+  }
+}
