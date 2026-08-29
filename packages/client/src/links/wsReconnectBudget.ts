@@ -1,0 +1,1 @@
+export class WSReconnectBudget { private attempts: number[] = []; constructor(public maxPerMinute = 10) {} canAttempt(): boolean { const now = Date.now(); this.attempts = this.attempts.filter(t => now - t < 60000); if (this.attempts.length >= this.maxPerMinute) return false; this.attempts.push(now); return true; } }
