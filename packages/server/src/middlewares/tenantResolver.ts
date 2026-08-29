@@ -1,1 +1,5 @@
-export function resolveTenant(host: string, headerTenant?: string): string { if (headerTenant) return headerTenant; const parts = host.split('.'); return parts.length > 2 ? parts[0] : 'default'; }
+export function resolveTenant(host: string, headerTenant?: string): string {
+  if (headerTenant) return headerTenant;
+  const parts = host.split('.');
+  return parts.length > 2 ? parts[0] : 'default';
+}
