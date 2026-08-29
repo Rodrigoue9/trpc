@@ -1,0 +1,1 @@
+export function deepFreeze<T>(obj: T): T { if (obj && typeof obj === 'object' && !Object.isFrozen(obj)) { Object.freeze(obj); Object.values(obj).forEach(deepFreeze); } return obj; }
