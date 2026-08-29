@@ -1,0 +1,1 @@
+export function extractBearerToken(authHeader: string = ''): string | null { if (authHeader.startsWith('Bearer ')) return authHeader.slice(7).trim(); return null; }
