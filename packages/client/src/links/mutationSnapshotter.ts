@@ -1,0 +1,1 @@
+export class MutationSnapshotter<T> { private snapshots = new Map<string, T>(); record(key: string, state: T) { this.snapshots.set(key, JSON.parse(JSON.stringify(state))); } restore(key: string): T | undefined { return this.snapshots.get(key); } clear(key: string) { this.snapshots.delete(key); } }
