@@ -1,0 +1,1 @@
+export function parseTraceParent(header: string = ''): { version: string; traceId: string; parentId: string; flags: string } | null { const parts = header.split('-'); if (parts.length !== 4) return null; return { version: parts[0], traceId: parts[1], parentId: parts[2], flags: parts[3] }; }
