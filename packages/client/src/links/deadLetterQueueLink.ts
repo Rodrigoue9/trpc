@@ -1,1 +1,17 @@
-export class DeadLetterQueue { private queue: Array<{ path: string; input: unknown; error: string; timestamp: number }> = []; push(item: { path: string; input: unknown; error: string }) { this.queue.push({ ...item, timestamp: Date.now() }); } list() { return [...this.queue]; } clear() { this.queue = []; } }
+export class DeadLetterQueue {
+  private queue: Array<{
+    path: string;
+    input: unknown;
+    error: string;
+    timestamp: number;
+  }> = [];
+  push(item: { path: string; input: unknown; error: string }) {
+    this.queue.push({ ...item, timestamp: Date.now() });
+  }
+  list() {
+    return [...this.queue];
+  }
+  clear() {
+    this.queue = [];
+  }
+}
