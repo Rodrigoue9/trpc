@@ -1,1 +1,8 @@
-export function isAllowedOrigin(origin: string, allowed: (string | RegExp)[]): boolean { return allowed.some(p => typeof p === 'string' ? p === origin || p === '*' : p.test(origin)); }
+export function isAllowedOrigin(
+  origin: string,
+  allowed: (string | RegExp)[],
+): boolean {
+  return allowed.some((p) =>
+    typeof p === 'string' ? p === origin || p === '*' : p.test(origin),
+  );
+}
