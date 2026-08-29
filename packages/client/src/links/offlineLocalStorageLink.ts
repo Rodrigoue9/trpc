@@ -1,0 +1,1 @@
+export class OfflineQueue { private key: string; constructor(key = 'trpc_offline_queue') { this.key = key; } enqueue(item: any, storage: Storage) { const q = this.list(storage); q.push(item); storage.setItem(this.key, JSON.stringify(q)); } list(storage: Storage): any[] { try { return JSON.parse(storage.getItem(this.key) || '[]'); } catch { return []; } } }
